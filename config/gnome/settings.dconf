@@ -1,0 +1,53 @@
+[control-center]
+last-panel='datetime'
+
+[desktop/input-sources]
+sources=[('xkb', 'tr')]
+
+[desktop/interface]
+gtk-im-module='gtk-im-context-simple'
+gtk-theme='Yaru-dark'
+
+[evolution-data-server]
+migrated=true
+network-monitor-gio-name=''
+
+[nautilus/preferences]
+default-folder-viewer='icon-view'
+search-filter-time-type='last_modified'
+
+[nautilus/window-state]
+initial-size=(890, 550)
+maximized=false
+
+[shell]
+app-picker-view=uint32 1
+favorite-apps=['org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'code.desktop', 'postman.desktop', 'google-chrome.desktop', 'discord.desktop', 'sublime_merge.desktop', 'intellij-idea-community_intellij-idea-community.desktop', 'dbeaver-ce.desktop', 'virtualbox.desktop']
+
+[shell/extensions/dash-to-dock]
+dash-max-icon-size=26
+dock-fixed=true
+dock-position='BOTTOM'
+preferred-monitor=0
+
+[terminal/legacy]
+theme-variant='dark'
+
+[terminal/legacy/keybindings]
+close-tab='<Primary>w'
+close-window='<Primary>w'
+new-tab='<Primary>t'
+new-window='<Primary>n'
+next-tab='<Primary><Shift>Right'
+prev-tab='<Primary><Shift>Left'
+
+[terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+background-color='rgb(26,32,35)'
+bold-is-bright=false
+default-size-columns=100
+font='MesloLGS NF 12'
+foreground-color='rgb(204,204,204)'
+palette=['rgb(46,52,54)', 'rgb(239,41,41)', 'rgb(0,255,95)', 'rgb(175,215,0)', 'rgb(0,215,255)', 'rgb(0,175,255)', 'rgb(215,95,215)', 'rgb(211,215,207)', 'rgb(85,87,83)', 'rgb(243,75,75)', 'rgb(77,255,143)', 'rgb(230,255,122)', 'rgb(128,235,255)', 'rgb(82,201,255)', 'rgb(222,158,222)', 'rgb(253,246,227)']
+use-system-font=false
+use-theme-colors=false
+use-theme-transparency=true

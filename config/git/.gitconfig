@@ -1,0 +1,20 @@
+[user]
+        name = Osman Kartal
+        email = kartal.osman@outlook.com.tr
+[alias]
+        ci = commit
+        co = checkout
+        st = status
+        br = branch
+[url "ssh://git@github.com/"]
+        insteadOf = https://github.com/
+[init]
+        defaultBranch = master
+[core]
+        excludesfile = ~/.gitignore
+        editor = vim
+[merge]
+        tool = smerge
+[mergetool "smerge"]
+        cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+        trustExitCode = true                

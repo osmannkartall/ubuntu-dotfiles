@@ -1,0 +1,39 @@
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "omnisharp.organizeImportsOnFormat": true,
+    "omnisharp.enableImportCompletion": true,
+    "editor.minimap.enabled": false,
+    "editor.rulers": [
+        100
+    ],
+    "editor.detectIndentation": false,
+    "editor.tabSize": 4,
+    "editor.fontFamily": "Consolas, monospace",
+    "terminal.integrated.fontFamily": "MesloLGS NF",
+    "editor.fontLigatures": null,
+    "workbench.colorTheme": "Ayu Mirage Bordered",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "editor.fontSize": 16,
+    "files.autoSave": "afterDelay", 
+    "files.autoSaveDelay": 10000,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "[html]": {
+        "editor.detectIndentation": false,
+        "editor.tabSize": 2
+    },
+    "[javascriptreact]": {
+        "editor.detectIndentation": false,
+        "editor.tabSize": 2
+    },
+    "[typescriptreact]": {
+        "editor.detectIndentation": false,
+        "editor.tabSize": 2
+    },
+    "files.associations": {
+        "*.jsx": "javascriptreact",
+        "*.tsx": "typescriptreact"
+    }
+}
