@@ -14,8 +14,9 @@ Vagrant.configure("2") do |config|
         sudo apt-get install -y --no-install-recommends dkms virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
         sudo apt-get install -y --no-install-recommends yaru-theme-gtk yaru-theme-sound yaru-theme-gnome-shell yaru-theme-icon yaru-theme-unity
 
-        sudo usermod -a -G sudo vagrant
         sudo chmod +x /workspace/run.sh /workspace/programs.sh /workspace/configs.sh
+
+        sudo usermod -a -G sudo vagrant
     SHELL
 
     # Install programs as non-privileged user.
