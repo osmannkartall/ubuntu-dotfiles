@@ -47,9 +47,9 @@ install_deb() {
     DOWNLOAD_URL=$1
     FILENAME=program.deb
 
-    run_command wget -O ${SCRIPT_DIR}/${FILENAME} $DOWNLOAD_URL
-    run_command sudo apt-get install -y ${SCRIPT_DIR}/${FILENAME}
-    run_command sudo rm -r ${SCRIPT_DIR}/${FILENAME}
+    run_command wget -O ${SCRIPT_DIR}/${FILENAME} $DOWNLOAD_URL && \
+        sudo apt-get install -y ${SCRIPT_DIR}/${FILENAME} && \
+        sudo rm -r ${SCRIPT_DIR}/${FILENAME}
 }
 
 download_latest_release_from_github() {
@@ -88,13 +88,12 @@ install_latest_bin_from_github() {
 install_latest_deb_from_github() {
     DEST=$4
     download_latest_release_from_github $1 $2 $3 $DEST
-    run_command sudo dpkg -i $DEST
-    run_command rm -r $DEST
+    run_command sudo dpkg -i $DEST && rm -r $DEST
 }
 
 install_zsh() {
-    run_command sudo apt-get install -y zsh
-    run_command sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
+    run_command sudo apt-get install -y zsh && \
+        sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
 
     # Install zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -154,13 +153,13 @@ install_nvm() {
 }
 
 install_postman() {
-    run_command wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz
-    run_command sudo tar -xzf postman.tar.gz -C /opt
-    run_command rm postman.tar.gz
-    run_command sudo ln -s /opt/Postman/Postman /usr/bin/postman
-    run_command sudo mkdir -p ~/.local/share/applications
-    run_command sudo touch ~/.local/share/applications/postman.desktop
-    run_command sudo tee -a ~/.local/share/applications/postman.desktop << EOF
+    run_command wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz && \
+        sudo tar -xzf postman.tar.gz -C /opt && \
+        rm postman.tar.gz && \
+        sudo ln -s /opt/Postman/Postman /usr/bin/postman && \
+        sudo mkdir -p ~/.local/share/applications && \
+        sudo touch ~/.local/share/applications/postman.desktop && \
+        sudo tee -a ~/.local/share/applications/postman.desktop << EOF
 [Desktop Entry]
 Name=Postman
 GenericName=Postman
@@ -202,10 +201,10 @@ install_maven() {
     INSTALL_DIR="/opt/"
     ARCHIVE_NAME=maven.tar.gz
 
-    run_command sudo mkdir -p $INSTALL_DIR
-    run_command wget $DOWNLOAD_URL -O $SCRIPT_DIR/$ARCHIVE_NAME
-    run_command sudo tar -xzvf $SCRIPT_DIR/$ARCHIVE_NAME -C $INSTALL_DIR
-    run_command rm -r $SCRIPT_DIR/$ARCHIVE_NAME
+    run_command sudo mkdir -p $INSTALL_DIR && \
+        wget $DOWNLOAD_URL -O $SCRIPT_DIR/$ARCHIVE_NAME && \
+        sudo tar -xzvf $SCRIPT_DIR/$ARCHIVE_NAME -C $INSTALL_DIR && \
+        rm -r $SCRIPT_DIR/$ARCHIVE_NAME
 }
 
 install_docker() {
