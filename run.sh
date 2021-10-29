@@ -1,13 +1,14 @@
 #!/bin/bash
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 declare -a config_paths=(
-    # SOURCE                                # DEST
-    "config/git/.gitconfig                  ${HOME}/.gitconfig"
-    "config/git/.gitignore                  ${HOME}/.gitignore"
-    "config/zsh/.zshrc                      ${HOME}/.zshrc"
-    "config/zsh/.p10k.zsh                   ${HOME}/.p10k.zsh"
-    "config/vscode/settings.json            ${HOME}/.config/Code/User/settings.json"
-    "config/vscode/keybindings.json         ${HOME}/.config/Code/User/keybindings.json"
+    # SOURCE                                              # DEST
+    "${SCRIPT_DIR}/config/git/.gitconfig                  ${HOME}/.gitconfig"
+    "${SCRIPT_DIR}/config/git/.gitignore                  ${HOME}/.gitignore"
+    "${SCRIPT_DIR}/config/zsh/.zshrc                      ${HOME}/.zshrc"
+    "${SCRIPT_DIR}/config/zsh/.p10k.zsh                   ${HOME}/.p10k.zsh"
+    "${SCRIPT_DIR}/config/vscode/settings.json            ${HOME}/.config/Code/User/settings.json"
+    "${SCRIPT_DIR}/config/vscode/keybindings.json         ${HOME}/.config/Code/User/keybindings.json"
 )
 
 declare -a program_names=(
@@ -53,7 +54,7 @@ case "$1" in
         sudo apt-get update && sudo apt-get upgrade -y
         install_programs program_names
         copy_configs config_sources config_destinations
-        set_gnome_configs config/gnome/settings.dconf
+        set_gnome_configs ${SCRIPT_DIR}/config/gnome/settings.dconf
         ;;
     clear)
         uninstall_programs
