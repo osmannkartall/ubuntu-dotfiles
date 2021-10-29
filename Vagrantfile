@@ -15,12 +15,12 @@ Vagrant.configure("2") do |config|
       sudo apt-get install -y --no-install-recommends yaru-theme-gtk yaru-theme-sound yaru-theme-gnome-shell yaru-theme-icon yaru-theme-unity
 
       sudo usermod -a -G sudo vagrant
+      sudo chmod +x /workspace/run.sh /workspace/programs.sh /workspace/configs.sh
   SHELL
 
   # Install programs as non-privileged user.
   config.vm.provision "shell", privileged: false, inline: <<-SHELL
-      cd /workspace
-      ./run.sh setup
+      /workspace/run.sh setup
   SHELL
 
   config.vm.provision "shell", inline: "sudo shutdown -r now"
