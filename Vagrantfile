@@ -7,12 +7,12 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/focal64"
 
   config.vm.provision "shell", inline: <<-SHELL
-      sudo apt update -y
-      sudo apt upgrade -y
+      sudo apt-get update -y
+      sudo apt-get upgrade -y
 
-      sudo apt install -y --no-install-recommends ubuntu-desktop
-      sudo apt install -y --no-install-recommends dkms virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
-      sudo apt install -y --no-install-recommends yaru-theme-gtk yaru-theme-sound yaru-theme-gnome-shell yaru-theme-icon yaru-theme-unity
+      sudo apt-get install -y --no-install-recommends ubuntu-desktop
+      sudo apt-get install -y --no-install-recommends dkms virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
+      sudo apt-get install -y --no-install-recommends yaru-theme-gtk yaru-theme-sound yaru-theme-gnome-shell yaru-theme-icon yaru-theme-unity
 
       sudo usermod -a -G sudo vagrant
   SHELL

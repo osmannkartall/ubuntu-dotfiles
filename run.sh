@@ -50,7 +50,7 @@ source $(dirname "$0")/configs.sh
 
 case "$1" in
     setup)
-        sudo apt update && sudo apt upgrade -y
+        sudo apt-get update && sudo apt-get upgrade -y
         install_programs program_names
         copy_configs config_sources config_destinations
         set_gnome_configs config/gnome/settings.dconf

@@ -48,7 +48,7 @@ install_deb() {
     FILENAME=program.deb
 
     run_command wget -O ${SCRIPT_DIR}/${FILENAME} $DOWNLOAD_URL
-    run_command sudo apt install -y ${SCRIPT_DIR}/${FILENAME}
+    run_command sudo apt-get install -y ${SCRIPT_DIR}/${FILENAME}
     run_command sudo rm -r ${SCRIPT_DIR}/${FILENAME}
 }
 
@@ -93,7 +93,7 @@ install_latest_deb_from_github() {
 }
 
 install_zsh() {
-    run_command sudo apt install -y zsh
+    run_command sudo apt-get install -y zsh
     run_command sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
 
     # Install zsh-autosuggestions
@@ -194,7 +194,7 @@ install_bat() {
 install_java() {
     version=openjdk-17-jdk
 
-    run_command sudo apt install -y $version
+    run_command sudo apt-get install -y $version
 }
 
 install_maven() {
@@ -228,7 +228,7 @@ install_docker() {
 }
 
 install_python3_addons() {
-    sudo apt install -y python3-venv python3-pip
+    sudo apt-get install -y python3-venv python3-pip
     pip3 install pylint
     #python3 -m pip install -U git+git://github.com/python/mypy.git
 }
@@ -257,7 +257,7 @@ install_sublime_merge() {
 }
 
 install_virtualbox() {
-    sudo apt install -y virtualbox
+    sudo apt-get install -y virtualbox
 }
 
 install_vagrant() {
@@ -301,19 +301,19 @@ install_mongodb() {
 }
 
 install_tree() {
-    sudo apt install -y tree
+    sudo apt-get install -y tree
 }
 
 install_htop() {
-    sudo apt install -y htop
+    sudo apt-get install -y htop
 }
 
 install_netcat() {
-    sudo apt install -y netcat
+    sudo apt-get install -y netcat
 }
 
 install_watch() {
-    sudo apt install -y watch
+    sudo apt-get install -y watch
 }
 
 declare -A available_installations=(
@@ -360,7 +360,7 @@ install_programs() {
 }
 
 uninstall_programs() {
-    sudo apt remove -y zsh zsh-common
+    sudo apt-get remove -y zsh zsh-common
     sudo rm -r ${HOME}/.zshrc ${HOME}/.p10k.zsh ${HOME}/.oh-my-zsh
 
     code --uninstall-extension teabyii.ayu
@@ -374,7 +374,7 @@ uninstall_programs() {
     code --uninstall-extension wayou.vscode-todo-highlight
     code --uninstall-extension visualstudioexptteam.vscodeintellicode
     code --uninstall-extension redhat.vscode-yaml
-    sudo apt remove -y code
+    sudo apt-get remove -y code
     sudo rm ${HOME}/.config/Code/User/settings.json ${HOME}/.config/Code/User/keybindings.json
 
     sudo rm -r "$NVM_DIR"
@@ -383,11 +383,11 @@ uninstall_programs() {
     sudo rm -r /opt/Postman
     sudo rm -r /usr/bin/postman
 
-    sudo apt remove -y dbeaver-ce
+    sudo apt-get remove -y dbeaver-ce
 
     sudo rm -r /usr/bin/jq
 
-    sudo apt remove -y bat
+    sudo apt-get remove -y bat
 
     sudo apt-get purge -y openjdk-17*
 
@@ -398,35 +398,35 @@ uninstall_programs() {
     sudo rm -r /var/lib/containerd
     sudo rm -r /usr/share/keyrings/docker-archive-keyring.gpg
 
-    sudo apt remove -y python3-venv python3-pip
+    sudo apt-get remove -y python3-venv python3-pip
     pip3 uninstall pylint
 
-    #sudo apt remove -y google-chrome google-chrome-stable
+    #sudo apt-get remove -y google-chrome google-chrome-stable
     sudo dpkg -r google-chrome-stable
 
     sudo snap remove intellij-idea-community
 
-    sudo apt remove -y discord
+    sudo apt-get remove -y discord
 
-    sudo apt remove -y sublime-merge
+    sudo apt-get remove -y sublime-merge
 
     sudo apt-get purge -y virtualbox
 
     sudo rm -r /opt/vagrant
     sudo rm -r /usr/bin/vagrant
-    sudo apt remove -y vagrant
+    sudo apt-get remove -y vagrant
 
     sudo service mongod stop
     sudo apt-get purge -y mongodb-org*
-    sudo apt remove -y mongodb-database-tools mongodb-mongosh
+    sudo apt-get remove -y mongodb-database-tools mongodb-mongosh
     sudo rm -r /var/log/mongodb
     sudo rm -r /var/lib/mongodb
 
-    sudo apt remove -y tree
+    sudo apt-get remove -y tree
 
-    sudo apt remove -y htop
+    sudo apt-get remove -y htop
     
-    sudo apt remove -y netcat
+    sudo apt-get remove -y netcat
     
-    sudo apt remove -y watch
+    sudo apt-get remove -y watch
 }
