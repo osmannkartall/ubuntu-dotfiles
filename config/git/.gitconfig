@@ -6,8 +6,25 @@
         co = checkout
         st = status
         br = branch
-[url "ssh://git@github.com/"]
-        insteadOf = https://github.com/
+        # find the commits that changed the file
+        fccf = log --follow --
+        # undo last commit but keep change
+        ulckc = reset --soft HEAD~1
+        # commits by author without merge commits
+        cba = shortlog -s -n --all --no-merges
+        # list defined git aliases
+        la = config --get-regexp alias
+        # list branches sorted by commit date descending
+        lbscdd = for-each-ref --sort='-committerdate' --format='%(committerdate)%09%09%(refname)' refs/heads
+        lbscdd-remotes = for-each-ref --sort='-committerdate' --format='%(committerdate)%09%09%(refname)' refs/remotes
+        
+        # # get commits reachable from DEVELOPMENT but not v1.0.0:
+        # git log --pretty=oneline v1.0.0...DEVELOPMENT
+        
+        # # remove any remote tracking branches that no longer exist remotely
+        # git fetch -p origin
+        
+        # git pull --no-commit git@github.com:username/reponame.git master
 [init]
         defaultBranch = master
 [core]
@@ -17,4 +34,14 @@
         tool = smerge
 [mergetool "smerge"]
         cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
-        trustExitCode = true                
+        trustExitCode = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[credential]
+	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true
